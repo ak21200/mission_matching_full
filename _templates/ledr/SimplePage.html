@@ -1,0 +1,62 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% comment %}
+This template builds pages which contain one or more questions which participants answer,
+but no other content.
+This is used for collecting demographics, and also is suitable for comprehension
+questions.
+
+This implements 'nice' server-side feedback: validation messages are displayed
+immediately following the input widget and formatted according to good design guidelines
+similar to what one will see on many websites.
+
+Pages which derive from this template do not need to specify the oTree content block, which is
+provided by this page.
+
+The oTree title block defaults to the value of the 'title' variable passed to the template,
+if present.  Alternatively a derived page can override this block.
+
+The label on the button to submit/confirm responses defaults to 'Confirm'.
+This can be overridden by passing button_text to the template variables, or a custom
+button or other mechanism supplied by replacing the confirm_button block
+{% endcomment %}
+
+{% block title %}
+{{ title|default:"" }}
+{% endblock title %}
+
+
+{% block content %}
+
+{% block pre_text %}
+{% endblock pre_text %}
+
+{% block form_content %}
+{% for field in form %}
+    <div class="container border bg-light p-2 mt-2 mb-2">
+        <div class="mb-3">
+            <label for="{{ field.name }}" class="form-label">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+                <div>
+                    <p class="text-danger"><em>
+                        {% for error in field.errors %}{{ error }}<br/> {% endfor %}
+                    </em></p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}
+{% endblock form_content %}
+
+{% block post_text %}
+{% endblock post_text %}
+
+{% block confirm_button %}
+<div class="row justify-content-center">
+    <button class="otree-btn-next btn btn-primary">{{ button_text|default:"Confirm" }}</button>
+</div>
+{% endblock confirm_button %}
+
+{% endblock content %}

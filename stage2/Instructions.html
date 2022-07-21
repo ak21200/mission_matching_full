@@ -1,0 +1,67 @@
+{% block title %}Stage 2: Instructions{% endblock %}
+{% block content %}
+
+    <p>
+        For Stage 2, you have been assigned as your charity <strong>{{ charity_name }}</strong>,
+        {% if participant.match %}
+            which is the charity you indicated you <strong>preferred the most</strong>.
+        {% else %}
+            which is the charity you indicated you <strong>preferred the least</strong>.
+        {% endif %}
+    </p>
+
+    <p>
+        <strong>Every slider</strong> correctly completed in this stage will result in a potential <strong>£0.05 donation</strong> to this charity.
+        One participant will randomly be chosen, and the corresponding donation resulting from all rounds
+        the chosen participant will be donated. At the end of the experiment, you will be
+        informed whether you were chosen, the amount being donated and the charity receiving the donation. The
+        donation are in addition to your earnings and not deducted from them.
+    </p>
+
+    <p>
+        If this stage is chosen to determine your earnings for the experiment, you will receive <strong>£1.50 for each round
+        you complete</strong>.
+    </p>
+
+    {% if participant.penalty == 3 %}
+           <p>
+               Additionally, you will receive <strong>£0.05 for every correctly completed slider over and beyond the 35th correctly
+               completed slider in a round</strong>. This will apply to all rounds in which you correctly complete more than
+               35 sliders.
+
+           </p>
+
+    {% elif participant.penalty == 2 %}
+            <p>
+                However, if you complete <strong>fewer than 20 sliders correctly in a round, Stage 2 will terminate for you</strong>.
+                You will not participate in the remaining rounds of Stage 2, and will not receive payment
+                for those rounds. You will be paid only for the rounds you have completed.
+
+            </p>
+
+    {{ elif participant.penalty == 4 }}
+            <p>
+               Additionally, you will receive <strong>£0.05 for every correctly completed slider over and beyond the 35th correctly
+               completed slider in a round</strong>. This will apply to all rounds in which you correctly complete more than
+               35 sliders.
+            </p>
+            <p>
+               However, if you complete <strong>fewer than 20 sliders correctly in a round, Stage 2 will terminate for you</strong>.
+               You will not participate in the remaining rounds of Stage 2, and will not receive payment
+               for those rounds. You will be paid only for the rounds you have completed.
+            </p>
+
+    {{else}}
+            <p>
+
+            </p>
+    {% endif %}
+
+    <p>
+        How many sliders you complete is upto you. You will progress to survey when Stage 2 ends.
+    </p>
+
+    {{ include "global/ButtonNext.html" with button_text="Begin Stage 2" }}
+    {{ include "global/Footer.html" }}
+
+{% endblock %}

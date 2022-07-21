@@ -1,0 +1,40 @@
+
+
+{% block title %}
+    Welcome
+{% endblock %}
+
+{% block content %}
+<div class="panel panel-default" style="margin-bottom:10px">
+        <div class="panel-body">
+            <p>
+            Welcome to today’s experiment and thank you for coming.
+            This is an experiment in the economics of decision-making.
+            If you follow the instructions, complete the experiment and make appropriate decisions,
+            you can earn an appreciable amount of money.
+            This will be paid to you in private, in cash, at the end of the session,
+            before you leave the laboratory.
+            </p>
+
+            <p>It is important that you remain silent and do not look at other people's work.
+            If you have any questions, or need assistance of any kind, please raise your
+            hand and an experimenter will come to you.
+            If you talk, laugh, exclaim out loud, etc., you will be asked to leave
+            and you will not be paid.
+            We expect and appreciate your cooperation.
+            </p>
+
+            <p>
+            All decisions in today's experiment and any information you choose to give is
+            recorded anonymously, and will only be used in the analysis of the data from this experiment.
+            </p>
+
+            <p>
+                Click on (next) to proceed to the introductory instructions.
+            </p>
+
+    {{ include "global/ButtonNext.html" with button_text="Next" }}
+    {{ include "global/Footer.html" }}
+
+
+{% endblock %}

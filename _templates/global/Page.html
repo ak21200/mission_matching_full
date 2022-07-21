@@ -1,0 +1,66 @@
+
+{% extends "otree/Page.html" %}
+{% load i18n %}
+{% load otree static %}
+
+{% block global_styles  %}
+<style>
+.otree-form-errors {
+    display: none;
+}
+
+
+
+</style>
+{% endblock %}
+
+{% block global_scripts  %}
+{% endblock %}
+
+
+{% comment %}
+Below we replace oTree's body_main block.  This accomplishes two things:
+* Adds a bespoke UEA/LEDR-branded footer;
+* By default suppresses the obnoxious way in which oTree prints server-side form validation
+  errors.  (This can be overridden by specifying suppress_errors=False in the template
+  variables, which restores the oTree default.)
+
+Because body_main is not officially publicly exposed by oTree, this would need reviewing
+for future versions to compare against the default implementation.
+The implementation below is based on oTree 3.3.x.
+{% endcomment %}
+
+{% block body_main %}
+    <div class="otree-body container">
+        <h2 class="otree-title page-header">{% block title %}{% endblock %}</h2>
+        {% if view.remaining_timeout_seconds != None %}
+            {% include 'otree/includes/TimeLimit.html' with form_element_id="form" %}
+        {% endif %}
+        {% if not suppress_errors|default:True and form.errors %}
+            <div class="otree-form-errors alert alert-danger">
+              {% blocktrans trimmed %}Please fix the errors in the form.{% endblocktrans %}
+              {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+        {% if js_vars|default:False %}<script>var js_vars = {{ js_vars|json }};</script>{% endif %}
+        <form class="otree-form" method="post" role="form" id="form" autocomplete="off">{% csrf_token %}
+            <div class="_otree-content">{% block content %}{% endblock %}</div>
+        </form>
+        <footer>
+            <hr/>
+            <div class="text-right">
+                <p class="text-muted font-italic">Laboratory for Economic and Decision Research, University of East Anglia
+                    <img src="{% static 'global/uea.png' %}" class="align-content-center ml-3" alt="UEA logo"/>
+                </p>
+        </div>
+        </footer>
+
+        <br/>
+        {# need the default:False for projects with old MTurkLandingPage #}
+        {% if view.is_debug|default:False %}
+            <br>
+            {% include 'otree/includes/debug_info.html' %}
+        {% endif %}
+    </div>
+
+{% endblock body_main %}

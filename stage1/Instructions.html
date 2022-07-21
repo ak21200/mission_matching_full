@@ -1,0 +1,39 @@
+{% block title %}
+    Stage 1: Instructions
+{% endblock %}
+{% block content %}
+    <p>
+        Stage 1 will consist of five <b>rounds</b>.  Each round will last for <b>90 seconds</b>.
+    </p>
+
+    <p>
+        In each round, you will see a screen with 48 sliders.  Each slider will start out at a random position.
+    </p>
+
+    <p>
+        Your objective is to move as many sliders to the centre of the slider bar as you can.
+    </p>
+
+    <p>
+        The centre of the slider bar is marked by a <b>red dot</b>.  You will know you have correctly
+        positioned the slider at the centre of the bar when the slider turns <b>blue</b>.
+    </p>
+
+    <p>
+        The screen will contain a timer showing you how much time remains in the round, and a progress bar
+        showing how many sliders you have completed.
+    </p>
+
+    <p>
+        Each round will begin immediately after the end of the previous round.
+    </p>
+
+    <p>
+        If this stage is chosen to determine your earnings for the experiment, you will receive
+        <b>£1.50 per round</b>, for a total of <b>£7.50</b>.
+    </p>
+
+    {{ include "global/ButtonNext.html" with button_text="Begin Stage 1" }}
+    {{ include "global/Footer.html" }}
+
+{% endblock %}

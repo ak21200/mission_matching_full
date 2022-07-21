@@ -1,0 +1,78 @@
+{% block title %}
+    Charity donations
+{% endblock %}
+
+{% block content %}
+    <p>
+        In today's experiment, your decisions can generate a monetary donation for a charity, in addition to the
+        amount you will earn.
+    </p>
+
+    <p>
+        Four charities along with excerpts from their websites are given below. Please read them carefully and rank the following charities from 1 to 4 in the order of your preference, with 1 being the
+        charity you prefer the most, and 4 the charity you prefer the least.
+    </p>
+
+    {% block form_content %}
+
+            <div class="container border bg-light p-2 mt-2 mb-2">
+                <div class="mb-3">
+                  <p>
+                    <strong>CISWO (Coal Industry Social Welfare Organisation) - </strong>
+                    “We’re a UK-wide charity providing free support to former coal miners and their families….We also work to
+                    secure the future of recreational facilities in former coal mining communities and work with local mining
+                    charities to ensure their services continue.”
+                    {% formfield 'CISWO' %}
+                  </p>
+
+                </div>
+            </div>
+
+            <div class="container border bg-light p-2 mt-2 mb-2">
+                <div class="mb-3">
+                    <p>
+                        <strong>The Crowd: Ember - </strong>
+                        “Funds paid to Ember are used in their research and policy campaigning against the continued use of coal….Ember
+                        provide expert advice for campaigning organisations across the world, ensuring the right pressure is applied, at
+                        the right time, to close coal power plants."
+                    </p>
+                    {% formfield 'Ember' %}
+
+                </div>
+            </div>
+
+            <div class="container border bg-light p-2 mt-2 mb-2">
+                <div class="mb-3">
+                    <p>
+                        <strong>CARE (Christian Action, Research, and Education) - </strong>
+                        “CARE is passionately pro-woman and pro-life: we advocate for both lives in a pregnancy to be protected and for
+                        a society where women are genuinely supported….We want to work for a society where abortion is unthinkable, and
+                        women and babies are protected.”
+                    </p>
+                    {% formfield 'CARE' %}
+
+                </div>
+            </div>
+
+            <div class="container border bg-light p-2 mt-2 mb-2">
+                <div class="mb-3">
+                    <p>
+                        <strong>BPAS (British Pregnancy Advisory Service) - </strong>
+                        “Purpose: To remove all barriers to reproductive choice and to advocate for and deliver high quality,
+                        woman-centred reproductive health care.…. Over the years we have worked with the National Health Service to
+                        ensure that access to abortion care is equitable, fast and free for the client.”
+                    </p>
+                    {% formfield 'BPAS' %}
+                </div>
+            </div>
+
+    {% endblock form_content %}
+
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <button class="otree-btn-next btn btn-primary">Confirm ranking</button>
+        </div>
+    </div>
+
+   {{ include "global/Footer.html" }}
+{% endblock %}

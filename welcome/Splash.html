@@ -1,0 +1,23 @@
+{{ block content }}
+
+    <div class="row">
+        <h3 class="text-center">
+            Welcome to the Laboratory for Economic and Decision Research!
+        </h3>
+    </div>
+
+    <div class="row justify-content-center p-3">
+        <div class="col text-center">
+            <img src="{{ static 'global/ueaeco.png' }}" class="ml-3" alt="UEA logo"/>
+        </div>
+    </div>
+
+    <div class="row justify-content-center p-3">
+        <h3 class="text-center">
+            Today's experiment will begin shortly.
+        </h3>
+     </div>
+
+    {{ include "global/ButtonIfDemo.html" }}
+
+{{ endblock }}

@@ -1,0 +1,27 @@
+
+
+{% block title %}
+    Introduction
+{% endblock %}
+
+{% block content %}
+    <p>
+        Today's experiment consists of a total of two (2) stages.
+    </p>
+
+    <p>
+        The two stages are independent of each other.
+        We will give you instructions for each stage at the start of that stage.
+    </p>
+
+    <p>
+        Onne stage will be chosen at random to determine your earnings for the experiment.
+    </p>
+
+    <p>
+        Click on (next) to proceed to Stage 1 Instructions.
+    </p>
+    {{ include "global/ButtonNext.html" with button_text="Next" }}
+    {{ include "global/Footer.html" }}
+
+{% endblock %}

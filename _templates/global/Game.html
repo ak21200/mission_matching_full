@@ -1,0 +1,33 @@
+{% block styles  %}
+    <link href="{% static 'sliders.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+
+{% block title %}
+Round {% player.round_number %} of 5
+{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-column align-items-center">
+    <progress id="progress-bar" max="{% params.num_sliders %}" value="0"></progress>
+    <canvas id="canvas" class="m-2"></canvas>
+
+</div>
+{{ include "global/Footer.html" }}
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'sliders.js' %}"></script>
+
+<script type="text/javascript">
+    history.pushState(null, null, location.href);
+    history.back();
+    history.forward();
+    window.onpopstate = function () { history.go(1); };
+</script>
+
+<SCRIPT type="text/javascript">
+	window.history.forward();
+	function noBack() { window.history.forward(); }
+</SCRIPT>
+{% endblock %}

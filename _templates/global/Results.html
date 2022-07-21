@@ -1,0 +1,34 @@
+{% block title %}
+Stage results
+{% endblock %}
+
+{% block content %}
+
+{{ if termination }}
+<p>
+    You completed fewer than 20 sliders in the previous round.
+    Therefore the Stage has now been terminated.
+</p>
+{{ endif }}
+
+<p>
+    Here is a summary of how many sliders you completed in each round:
+    <ul>
+    {% for p in player.in_all_rounds %}
+        {% if p.participated %}
+            <li>Round {{ p.round_number }}: <b>{{ p.num_correct }}</b> sliders.</li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+</p>
+
+<p>
+    If this stage is chosen to determine your earnings for the experiment,
+    your earnings would be <b>{{ potential_payoff }}</b>.
+</p>
+
+
+    {{ include "global/ButtonNext.html" with button_text="Next" }}
+    {{ include "global/Footer.html" }}
+
+{% endblock %}

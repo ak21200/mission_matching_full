@@ -1,0 +1,52 @@
+{% block title %}Survey{% endblock %}
+{% block content %}
+
+    <p>
+        Please indicate the extent to which you agree or disagree with the following statements.
+    </p>
+            <div class="container border bg-light p-2 mt-2 mb-2">
+                <div class="mb-3">
+
+                    <p>
+                        I support CISWO (Coal Industry Social Welfare Organisation).<br/>
+                        (You previously assigned this charity rank {% participant.CISWO %})
+                        {% formfield 'strength_ciswo'%}
+                    </p>
+                </div>
+            </div>
+
+            <div class="container border bg-light p-2 mt-2 mb-2">
+                <div class="mb-3">
+                        <p>I support The Crowd: Ember.<br/>
+                            (You previously assigned this charity rank {% participant.Ember %})
+                                 {% formfield 'strength_ember' %}
+                        </p>
+                </div>
+            </div>
+
+            <div class="container border bg-light p-2 mt-2 mb-2">
+                <div class="mb-3">
+                        <p>I support CARE (Christian Action, Research, and Education).<br/>
+                            (You previously assigned this charity rank {% participant.CARE %})
+                        {% formfield 'strength_care' %}
+                        </p>
+                </div>
+            </div>
+
+            <div class="container border bg-light p-2 mt-2 mb-2">
+                <div class="mb-3">
+                        <p>I support BPAS (British Pregnancy Advisory Service).<br/>
+                            (You previously assigned this charity rank {% participant.BPAS %})
+                        {% formfield 'strength_bpas' %}
+                        </p>
+                </div>
+            </div>
+    <div class="row justify-content-center">
+        <div class="col-1">
+            <button class="otree-btn-next btn btn-primary">Next</button>
+        </div>
+    </div>
+    {{ include "global/Footer.html" }}
+
+
+{% endblock %}
